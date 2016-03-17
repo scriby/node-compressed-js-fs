@@ -28,6 +28,10 @@ exports.decompressFile = function(content, filename) {
 };
 
 exports.compressFile = function(filename, replace, callback) {
+  if (filename.indexOf('node-compressed-js-fs') >= 0) {
+    return callback(); //Don't compress yourself, as we wouldn't be able to load this module
+  }
+
   if (typeof replace === 'function') {
     callback = replace;
     replace = false;
