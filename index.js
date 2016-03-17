@@ -18,10 +18,14 @@ exports.installHook = function() {
 };
 
 exports.decompressFile = function(content, filename) {
-  if (content.charCodeAt(0) === 120 && content.charCodeAt(1) === 65533) {
+  if (content.charCodeAt(0) === 120) {
     var buffer = new Buffer(fs.readFileSync(filename));
 
-    return zlibjs.inflateSync(buffer).toString();
+    try {
+      return zlibjs.inflateSync(buffer).toString();
+    } catch(e) {
+      return content;
+    }
   }
 
   return content;
