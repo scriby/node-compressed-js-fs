@@ -1,6 +1,6 @@
 var fs = require('fs');
 var zlib = require('zlib');
-var zlibjs = require('zlibjs'); //Using zlibjs for inflateSync on node v0.10.x
+var zlibjs = require('zlibjs-slim'); //Using zlibjs for inflateSync on node v0.10.x
 var mod = require('module').prototype;
 var originalCompile = mod._compile;
 
