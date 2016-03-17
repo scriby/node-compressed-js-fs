@@ -60,12 +60,12 @@ exports.compressFile = function(filename, replace, callback) {
   });
 };
 
+exports.installHook();
+
 //exports.compressFile(__dirname + '/test.js', false, function(err) {
 //  if (err) {
 //    throw err;
 //  }
-//
-//  exports.installHook();
 //
 //  require('./test.js.gz');
 //});
