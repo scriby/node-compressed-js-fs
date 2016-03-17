@@ -1,6 +1,6 @@
 {
   "name": "compressed-js-fs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Use compressed JS on disk (because size matters sometimes)",
   "homepage": "https://github.com/scriby/node-compressed-js-fs",
   "author": "Chris Scribner",
