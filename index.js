@@ -31,18 +31,17 @@ exports.decompressFile = function(content, filename) {
   return content;
 };
 
-exports.compressFile = function(filename, replace, callback) {
+exports.compressFile = function(args, callback) {
+  var filename = args.filename;
+  var level = args.level;
+  var replace = args.replace;
+
   if (filename.indexOf('compressed-js-fs') >= 0) {
     return callback(); //Don't compress yourself, as we wouldn't be able to load this module
   }
 
-  if (typeof replace === 'function') {
-    callback = replace;
-    replace = false;
-  }
-
   var deflate = zlib.createDeflate({
-    level: 7
+    level: level || 3
   });
 
   var writeStream = fs.createWriteStream(filename + '.gz');
